@@ -1,5 +1,5 @@
 # data-storage-system
-Store data easily to json files. Every necessary file will be created and it is super easy to store and load data values. 
+Store data easily to json files in Node.js. Every necessary file will be created and it is super easy to store and load data values. 
 
 ### Installing
 
