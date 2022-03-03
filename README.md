@@ -39,6 +39,7 @@ If the data does not exist the request will return the data value as 0.
 
 ```javascript
 store.load(id, name, function(err, object){
+  const Value = object; //Store the value to a variable.
   if(err) throw err;
 });
 ```
