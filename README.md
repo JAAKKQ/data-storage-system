@@ -1,5 +1,5 @@
 # data-storage-system
-Store data easily to json files.
+Store data easily to json files. Every necessary files will be created and it is super easy to store and load data values. 
 
 ### Installing
 
