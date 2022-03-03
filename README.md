@@ -1,6 +1,12 @@
 # data-storage-system
 Store data easily to json files.
 
+### Installing
+
+```
+npm install Petabytegames/data-storage-system
+```
+
 ### Creating store
 The store module is a function that takes a single parameter: the path to the location on the file system where you want to store your objects. 
 
