@@ -75,6 +75,6 @@ module.exports = {
 };
 ```
 
-###Credits
+### Credits
 
 Big credits to [alexkwolfe](https://github.com/alexkwolfe/json-fs-store) he made most of the code.
