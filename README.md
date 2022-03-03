@@ -1,5 +1,5 @@
 # data-storage-system
-Store data easily to json files.
+Store data easily to json files in Node.js. Every necessary file will be created and it is super easy to store and load data values. 
 
 ### Installing
 
@@ -39,6 +39,7 @@ If the data does not exist the request will return the data value as 0.
 
 ```javascript
 store.load(id, name, function(err, object){
+  const Value = object; //Store the value to a variable.
   if(err) throw err;
 });
 ```
