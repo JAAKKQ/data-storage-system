@@ -1,0 +1,24 @@
+{
+  "name": "data-storage-system",
+  "version": "1.0.0",
+  "description": "Store data easily to json files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JAAKKQ/data-storage-system.git"
+  },
+  "keywords": [
+    "json",
+    "data",
+    "storage"
+  ],
+  "author": "Jaakko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JAAKKQ/data-storage-system/issues"
+  },
+  "homepage": "https://github.com/JAAKKQ/data-storage-system#readme"
+}
