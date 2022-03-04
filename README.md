@@ -7,7 +7,7 @@ Store data easily to json files in Node.js. Every necessary file will be created
 npm install JAAKKQ/data-storage-system
 ```
 
-### Creating store
+### Creating a store
 The store module is a function that takes a single parameter: the path to the location on the file system where you want to store your objects. 
 
 ```javascript
