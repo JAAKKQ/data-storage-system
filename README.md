@@ -4,7 +4,7 @@ Store data easily to json files in Node.js. Every necessary file will be created
 ### Installing
 
 ```
-npm install Petabytegames/data-storage-system
+npm install JAAKKQ/data-storage-system
 ```
 
 ### Creating store
