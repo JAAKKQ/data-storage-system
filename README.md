@@ -18,7 +18,7 @@ If you omit the storage location the 'store' directory in your current working d
 
 ```javascript
 // the store directory will be created in the current working directory
-var store = require('json-fs-store')();
+var store = require('data-storage-system')();
 ```
 
 ### Storing data
