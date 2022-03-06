@@ -1,4 +1,6 @@
 const { strictEqual } = require('assert');
+var key = 'dn3013u4hf082ufh0248uhf08euryhg08u453h08guhd0guh045gu8he0gudfhg0iugfnf0ijdnfg0q349851¨DAFGODAFIGJOI453QU4250S';
+var encryptor = require('simple-encryptor')(key);
 var async = require('async'),
     fs = require('graceful-fs'),
     path = require('path'),
@@ -52,6 +54,7 @@ module.exports = function(dir) {
             if (err) return cb("error loading file" + err);
             try {
               obj = JSON.parse(code);
+              obj = encryptor.decrypt(obj)
             }
             catch (e) {
               console.log(id + "Error parsing " + f + ": " + e)
@@ -63,14 +66,15 @@ module.exports = function(dir) {
               ...obj,
               ...Data
             };
+            DataObj = encryptor.encrypt(DataObj);
             try {
               json = JSON.stringify(DataObj, null, 2);
             }
             catch (e) {
               return cb(e);
             }
-            DataObj.id = DataObj.id || uuid.v4();
-            fs.writeFile(path.join(dir, DataObj.id + '.json'), json, 'utf8', function(err) {
+            id = id || uuid.v4();
+            fs.writeFile(path.join(dir, id + '.json'), json, 'utf8', function(err) {
               if (err) return cb(err);
               cb();
             });
@@ -82,13 +86,14 @@ module.exports = function(dir) {
               id: `${id}`,
               [Name]: "0"
             };
+            obj = encryptor.encrypt(obj)
             try {
               json = JSON.stringify(obj, null, 2);
             }
             catch (e) {
               return cb(e);
             }
-            obj.id = obj.id || uuid.v4();
+            id = id || uuid.v4();
             fs.writeFile(path.join(dir, obj.id + '.json'), json, 'utf8', function(err) {
               if (err) return cb(err);
               loadFile(path.join(dir, id + '.json'), Name, cb);
@@ -100,14 +105,15 @@ module.exports = function(dir) {
               ...obj,
               ...Data
             };
+            DataObj = encryptor.encrypt(DataObj);
             try {
               json = JSON.stringify(DataObj, null, 2);
             }
             catch (e) {
               return cb(e);
             }
-            DataObj.id = DataObj.id || uuid.v4();
-            fs.writeFile(path.join(dir, DataObj.id + '.json'), json, 'utf8', function(err) {
+            id = id || uuid.v4();
+            fs.writeFile(path.join(dir, id + '.json'), json, 'utf8', function(err) {
               if (err) return cb(err);
               cb();
             });
@@ -145,14 +151,15 @@ module.exports = function(dir) {
               id: `${id}`,
               [Name]: "0"
             };
+            obj = encryptor.encrypt(obj);
             try {
               json = JSON.stringify(obj, null, 2);
             }
             catch (e) {
               return cb(e);
             }
-            obj.id = obj.id || uuid.v4();
-            fs.writeFile(path.join(dir, obj.id + '.json'), json, 'utf8', function(err) {
+            id = id || uuid.v4();
+            fs.writeFile(path.join(dir, id + '.json'), json, 'utf8', function(err) {
               if (err) return cb(err);
               loadFile(path.join(dir, id + '.json'), Name, cb);
             });
@@ -178,6 +185,7 @@ var loadFile = function(f, Name, cb) {
     if (err) return cb("error loading file" + err);
     try {
       var jsonObj = JSON.parse(code);
+      jsonObj = encryptor.decrypt(jsonObj);
       var Value = jsonObj[Name]
       if (Value === undefined) {
         Value = "0"
