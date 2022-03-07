@@ -1,13 +1,17 @@
 const { strictEqual } = require('assert');
+var path = require('path');
+var RootFolder = path.dirname(require.main.filename);
+const { token } = require(RootFolder + '/config.json');
+var key = token;
+var encryptor = require('simple-encryptor')(key);
 var async = require('async'),
     fs = require('graceful-fs'),
     path = require('path'),
     uuid = require('node-uuid'),
     mkdirp = require('mkdirp');
 
-module.exports = function(dir, key) {
+module.exports = function(dir) {
   dir = dir || path.join(process.cwd(), 'store');
-  var encryptor = require('simple-encryptor')(key);
 
   return {
 
