@@ -45,35 +45,43 @@ store.load(id, name, function(err, object){
 ```
 
 ### Example code
-Here is an example how I used this in my project.
 
 ```javascript
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const fetch = require('node-fetch');
-const { MessageEmbed } = require('discord.js');
-var store = require('data-storage-system')('./data/member'); //Creating store here
-const isEmptyObject = (obj) => Object.keys(obj).length === 0;
+var store = require('data-storage-system')('./data');
 
-module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('bal')
-		.setDescription('Returns your USD balance!'),
-	async execute(interaction) {
-		if (!interaction.isCommand()) return;
-        await interaction.deferReply();
-        const target = interaction.options.getUser('user') ?? interaction.user;
-		store.load(`${target.id}`, "USD", function(err, object, Name){ //Requesting data value here if data does not exist it will return the value as 0.
-			if(err) throw err;
-			const Bal = object; //Storing the given value to a variable.
-			const exampleEmbed = new MessageEmbed()
-				.setColor('#F1C40F')
-				.setTitle(`Your balance`)
-				.setDescription(`$${Bal}`)
-				.setTimestamp();
-			interaction.editReply({ embeds: [exampleEmbed] });
-		  });
-	},
-};
+const keypress = async () => {
+    process.stdin.setRawMode(true)
+    return new Promise(resolve => process.stdin.once('data', () => {
+      process.stdin.setRawMode(false)
+      resolve()
+    }))
+  }
+
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+  })
+  
+  readline.question(`Write data to save:`, data => {
+    store.add('FileName', 'InputedData', data, function(err, object){
+        if(err) throw err;
+        console.log(`Added ${data} to /data/FileName`)
+        store.load('FileName', 'InputedData', function(err, object){
+            const Value = object; //Store the value to a variable.
+            console.log(`Loaded InputedData from /data/FileName with value "${Value}"`);
+            console.log('Closing console in 10 seconds')
+            if(err) throw err;
+            (async () => {
+
+                console.log('Press any key to exit!')
+                await keypress()
+                console.log('Hello world!')
+              
+              })().then(process.exit)
+            });
+        });
+    })
+  
 ```
 
 ### If you want to try encrypting:
