@@ -76,6 +76,22 @@ module.exports = {
 };
 ```
 
+### If you want to try encrypting:
+**First of all you should not try this since this can corrupt all your data.**
+If you really want to try this do this:
+
+1. Create `config.json` file to your project root folder and add this:
+    ```json
+    {
+      "token": "Your-very-long-secret-key"
+    }
+    ```
+2. Add `/WithEnc` to your store
+    Example:
+     ```javascript
+     var store = require('data-storage-system/WithEnc')('./path/to/storage/location');
+      ``` 
+
 ### Credits
 
 Big credits to [alexkwolfe](https://github.com/alexkwolfe/json-fs-store) he made most of the code.
