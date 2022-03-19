@@ -21,9 +21,9 @@ If you omit the storage location the 'store' directory in your current working d
 var store = require('data-storage-system')();
 ```
 
-### Storing data
+### Write data
 
-A stored object must have an `id`, `name` and `value` attributes. The object
+To write new or existing data you must have the `id`, `name` and `value` attributes. The data
 will be written to the storage location. 
 
 ```javascript
