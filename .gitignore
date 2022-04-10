@@ -1,0 +1,10 @@
+node_modules
+.env
+config.json
+data
+build
+*.zip
+version.json
+*.zip
+update-cache
+package-lock.json
