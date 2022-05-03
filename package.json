@@ -4,7 +4,7 @@
   "description": "Store data easily to json files.",
   "main": "index.js",
   "dependencies": {
-    "async": "^1.4.2",
+    "async": ">=2.6.4",
     "graceful-fs": "^4.1.2",
     "mkdirp": "^0.5.1",
     "simple-encryptor": "^4.0.0",
@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "chai": "^3.3.0",
-    "mocha": "^2.3.3",
+    "mocha": "^10.0.0",
     "temp": "^0.8.3"
   },
   "engines": {
